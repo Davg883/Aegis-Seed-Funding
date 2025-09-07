@@ -45,8 +45,8 @@ export default function HeroSection() {
           
           {/* Sub-headline */}
           <h2 className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto font-light leading-relaxed">
-            We are building the AI 'Design Partner' for the UK's underserved SME service sector, 
-            eradicating the <span className="font-semibold text-white">£6+ 'Efficiency Tax'</span> that 
+            We are building the AI &lsquo;Design Partner&rsquo; for the UK&rsquo;s underserved SME service sector, 
+            eradicating the <span className="font-semibold text-white">£6+ &lsquo;Efficiency Tax&rsquo;</span> that 
             cripples their profitability.
           </h2>
           

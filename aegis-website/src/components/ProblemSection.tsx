@@ -14,8 +14,8 @@ export default function ProblemSection() {
             The High Cost of Inefficiency
           </h3>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Millions of UK SMEs are trapped in a 'swivel chair interface', manually bridging 
-            disconnected systems. We call this the <span className="font-semibold text-red-600">'Efficiency Tax'.</span>
+            Millions of UK SMEs are trapped in a &lsquo;swivel chair interface&rsquo;, manually bridging 
+            disconnected systems. We call this the <span className="font-semibold text-red-600">&lsquo;Efficiency Tax&rsquo;.</span>
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export default function ProblemSection() {
 
           <div className="text-center mt-8">
             <p className="text-gray-600 text-lg">
-              <span className="font-semibold text-red-600">The Reality:</span> Millions of SMEs trapped in manual 'swivel chair' workflows
+              <span className="font-semibold text-red-600">The Reality:</span> Millions of SMEs trapped in manual &lsquo;swivel chair&rsquo; workflows
               <br/>
               <span className="font-semibold text-green-600">The Solution:</span> AI-powered operational transformation
             </p>
