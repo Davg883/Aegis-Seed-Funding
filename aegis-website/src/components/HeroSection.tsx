@@ -17,15 +17,35 @@ export default function HeroSection() {
     // Add custom CSS to control iframe sizing
     const style = document.createElement('style');
     style.textContent = `
+      .imgur-embed-pub {
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        transform: scale(0.75) !important;
+        transform-origin: center top !important;
+      }
       .imgur-embed-pub iframe {
         max-width: 100% !important;
-        max-height: 500px !important;
-        width: auto !important;
-        height: auto !important;
+        max-height: 450px !important;
+        width: 800px !important;
+        height: 450px !important;
+        border-radius: 8px !important;
       }
       @media (max-width: 768px) {
+        .imgur-embed-pub {
+          transform: scale(0.65) !important;
+        }
         .imgur-embed-pub iframe {
           max-height: 300px !important;
+          height: 300px !important;
+        }
+      }
+      @media (max-width: 480px) {
+        .imgur-embed-pub {
+          transform: scale(0.55) !important;
+        }
+        .imgur-embed-pub iframe {
+          max-height: 250px !important;
+          height: 250px !important;
         }
       }
     `;
@@ -92,21 +112,14 @@ export default function HeroSection() {
           {/* Featured Video - Imgur Embed */}
           <div className="mt-16 relative">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-4 shadow-2xl">
-                <div className="bg-white rounded-lg p-2 overflow-hidden">
+              <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-6 shadow-2xl">
+                <div className="bg-white rounded-lg p-3 overflow-hidden">
                   {isClient ? (
-                    <div className="relative" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                    <div className="relative flex justify-center items-center">
                       <blockquote 
                         className="imgur-embed-pub" 
                         lang="en" 
                         data-id="iAZYmvW"
-                        style={{ 
-                          maxWidth: '100%', 
-                          height: 'auto',
-                          transform: 'scale(0.85)',
-                          transformOrigin: 'center top',
-                          margin: '0 auto'
-                        }}
                       >
                         <a href="https://imgur.com/iAZYmvW">
                           View post on imgur.com
