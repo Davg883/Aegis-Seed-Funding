@@ -1,6 +1,27 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 export default function HeroSection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    // Load Imgur embed script
+    const script = document.createElement('script');
+    script.src = '//s.imgur.com/min/embed.js';
+    script.async = true;
+    script.charset = 'utf-8';
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="//s.imgur.com/min/embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
       {/* Background Pattern/Visual */}
@@ -52,15 +73,22 @@ export default function HeroSection() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-4 shadow-2xl">
                 <div className="bg-white rounded-lg p-4">
-                  <blockquote 
-                    className="imgur-embed-pub" 
-                    lang="en" 
-                    data-id="iAZYmvW"
-                  >
-                    <a href="https://imgur.com/iAZYmvW">
-                      View post on imgur.com
-                    </a>
-                  </blockquote>
+                  {isClient ? (
+                    <blockquote 
+                      className="imgur-embed-pub" 
+                      lang="en" 
+                      data-id="iAZYmvW"
+                    >
+                      <a href="https://imgur.com/iAZYmvW">
+                        View post on imgur.com
+                      </a>
+                    </blockquote>
+                  ) : (
+                    <div className="bg-gray-200 rounded-lg p-12 text-center">
+                      <div className="text-4xl mb-4">🎬</div>
+                      <p className="text-gray-600">Loading video...</p>
+                    </div>
+                  )}
                 </div>
               </div>
               
