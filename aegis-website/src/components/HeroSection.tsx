@@ -14,11 +14,32 @@ export default function HeroSection() {
     script.charset = 'utf-8';
     document.head.appendChild(script);
     
+    // Add custom CSS to control iframe sizing
+    const style = document.createElement('style');
+    style.textContent = `
+      .imgur-embed-pub iframe {
+        max-width: 100% !important;
+        max-height: 500px !important;
+        width: auto !important;
+        height: auto !important;
+      }
+      @media (max-width: 768px) {
+        .imgur-embed-pub iframe {
+          max-height: 300px !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
     return () => {
-      // Cleanup script on unmount
+      // Cleanup script and style on unmount
       const existingScript = document.querySelector('script[src="//s.imgur.com/min/embed.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
+      }
+      const existingStyle = document.querySelector('style');
+      if (existingStyle && existingStyle.textContent?.includes('imgur-embed-pub')) {
+        document.head.removeChild(existingStyle);
       }
     };
   }, []);
@@ -72,17 +93,26 @@ export default function HeroSection() {
           <div className="mt-16 relative">
             <div className="max-w-4xl mx-auto">
               <div className="bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl p-4 shadow-2xl">
-                <div className="bg-white rounded-lg p-4">
+                <div className="bg-white rounded-lg p-2 overflow-hidden">
                   {isClient ? (
-                    <blockquote 
-                      className="imgur-embed-pub" 
-                      lang="en" 
-                      data-id="iAZYmvW"
-                    >
-                      <a href="https://imgur.com/iAZYmvW">
-                        View post on imgur.com
-                      </a>
-                    </blockquote>
+                    <div className="relative" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                      <blockquote 
+                        className="imgur-embed-pub" 
+                        lang="en" 
+                        data-id="iAZYmvW"
+                        style={{ 
+                          maxWidth: '100%', 
+                          height: 'auto',
+                          transform: 'scale(0.85)',
+                          transformOrigin: 'center top',
+                          margin: '0 auto'
+                        }}
+                      >
+                        <a href="https://imgur.com/iAZYmvW">
+                          View post on imgur.com
+                        </a>
+                      </blockquote>
+                    </div>
                   ) : (
                     <div className="bg-gray-200 rounded-lg p-12 text-center">
                       <div className="text-4xl mb-4">🎬</div>
