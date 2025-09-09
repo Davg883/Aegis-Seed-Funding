@@ -1,86 +1,78 @@
-'use client';
-
 export default function TeamSection() {
+  const TeamMemberCard = ({ name, title, role, description, logo, image }: { 
+    name: string; 
+    title: string; 
+    role: string; 
+    description: string; 
+    logo?: string;
+    image: string;
+  }) => (
+    <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
+      {/* Actual team member headshots */}
+      <div className="w-32 h-32 mx-auto mb-6">
+        <img 
+          src={image} 
+          alt={name} 
+          className="w-full h-full object-cover rounded-full"
+        />
+      </div>
+      <h3 className="text-2xl font-serif font-semibold text-[--primary] mb-1">{name}</h3>
+      <p className="text-lg text-[--accent] mb-2">{title}</p>
+      <p className="text-sm text-[--foreground] italic mb-4">{role}</p>
+      <p className="text-[--foreground] mb-4">{description}</p>
+      {logo && (
+        <div className="flex justify-center mt-4">
+          <div className="bg-gray-100 px-4 py-2 rounded">
+            <span className="text-gray-600 text-sm">{logo}</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            The Team
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[--primary] mb-6">
+            A Venture-Ready Team Built for This Mission
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-          <h3 className="text-2xl md:text-3xl text-gray-700 font-light mb-6">
-            A Founding Team of Proven Operators
-          </h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="text-center bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 border border-blue-200">
-            <div className="w-32 h-32 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">DG</span>
-            </div>
-            
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">David Grannum</h4>
-            <p className="text-lg font-semibold text-blue-600 mb-4">Founder & CEO</p>
-            <p className="text-sm text-gray-500 mb-4">The Operator-Visionary</p>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Tri-sector expert with operational experience (Solent Fuels), corporate strategy (Texaco), 
-              and AI architectural vision.
-            </p>
-          </div>
-
-          <div className="text-center bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 border border-purple-200">
-            <div className="w-32 h-32 bg-gradient-to-br from-purple-600 to-purple-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">SS</span>
-            </div>
-            
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">Sai Sunkara</h4>
-            <p className="text-lg font-semibold text-purple-600 mb-4">Co-Founder & CTO</p>
-            <p className="text-sm text-gray-500 mb-4">The AI Architect</p>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              World-class AI systems builder (ex-Cisco) with proven blueprint for 
-              agentic AI and optimisation technology.
-            </p>
-          </div>
-
-          <div className="text-center bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 border border-green-200">
-            <div className="w-32 h-32 bg-gradient-to-br from-green-600 to-green-700 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-4xl font-bold text-white">AF</span>
-            </div>
-            
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">Adam Fraser-Harris</h4>
-            <p className="text-lg font-semibold text-green-600 mb-4">Co-Founder & CFO</p>
-            <p className="text-sm text-gray-500 mb-4">The Financial Operator</p>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Venture-backed CFO & CEO (ex-blow LTD) with track record of scaling 
-              SaaS companies with rigorous financial discipline.
-            </p>
-          </div>
+          <TeamMemberCard 
+            name="David Grannum"
+            title="Founder & CEO"
+            role="The Operator-Visionary"
+            description="Tri-sector expert with deep operational experience (Solent Fuels), corporate strategy (Texaco), and AI architectural vision."
+            logo="Texaco"
+            image="/Images/DG Head shot.png"
+          />
+          <TeamMemberCard 
+            name="Sai Sunkara"
+            title="Co-Founder & CTO"
+            role="The AI Architect"
+            description="World-class AI systems builder (ex-Cisco) with a proven blueprint for our core agentic AI and constraint optimization technology."
+            logo="Cisco"
+            image="/Images/SS Headshot.png"
+          />
+          <TeamMemberCard 
+            name="Adam Fraser-Harris"
+            title="Co-Founder & CFO"
+            role="The Financial Operator"
+            description="Venture-backed CFO and former CEO (ex-blow LTD) with a track record of scaling tech companies with rigorous financial discipline."
+            logo="Venture-Backed"
+            image="/Images/AFH Headshot.png"
+          />
         </div>
 
-        {/* Team Credentials Visualization */}
-        <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-8 shadow-lg">
-          <h4 className="text-2xl font-semibold text-center mb-8 text-gray-900">
-            Proven Track Record & Credentials
-          </h4>
-          
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/Images/Team Score.390Z.png" 
-              alt="Founding Team Credentials and Track Record"
-              className="max-w-full h-auto rounded-lg shadow-md"
-            />
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-gray-700 text-lg">
-              <span className="font-semibold text-blue-600">World-Class Expertise:</span> The rare combination of 
-              operational depth, technical excellence, and financial rigor needed to execute at scale.
-            </p>
-          </div>
+        <div className="bg-[--background] rounded-xl p-8 border border-gray-200">
+          <h3 className="text-2xl font-serif font-semibold text-center mb-4 text-[--primary]">
+            A Perfect Triad of Execution Capability
+          </h3>
+          <p className="text-center text-lg text-[--foreground] max-w-4xl mx-auto">
+            Our team's composition is our strategic advantage, combining deep operational experience, world-class technical ability, and rigorous financial discipline. This is the team built to win.
+          </p>
         </div>
       </div>
     </section>

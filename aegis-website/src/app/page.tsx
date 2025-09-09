@@ -1,19 +1,19 @@
 import HeroSection from '@/components/HeroSection';
-import ProblemSection from '@/components/ProblemSection';
 import SolutionSection from '@/components/SolutionSection';
-import PhoenixProtocolSection from '@/components/PhoenixProtocolSection';
+import MarketOpportunitySection from '@/components/MarketOpportunitySection';
+import DefensibleMoatSection from '@/components/DefensibleMoatSection';
 import TeamSection from '@/components/TeamSection';
-import ContactSection from '@/components/ContactSection';
+import InvestmentOpportunitySection from '@/components/ContactSection';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[--background]">
       <HeroSection />
-      <ProblemSection />
       <SolutionSection />
-      <PhoenixProtocolSection />
+      <MarketOpportunitySection />
+      <DefensibleMoatSection />
       <TeamSection />
-      <ContactSection />
+      <InvestmentOpportunitySection />
     </div>
   );
 }

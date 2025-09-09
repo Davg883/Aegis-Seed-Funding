@@ -1,64 +1,44 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #F8F4E9; /* Premium off-white paper texture */
+  --foreground: #36454F; /* Charcoal Grey */
+  --primary: #002366; /* Aegis Navy */
+  --accent: #2A52BE; /* Cerulean Blue */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-playfair), serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('/Images/agents.761Z.png'); /* Ghosted architectural schematic */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
-/* Custom animations for Aegis Logistics website */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 3s linear infinite;
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom gradient backgrounds */
-.bg-gradient-aegis {
-  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+.font-serif {
+  font-family: var(--font-serif);
 }
 
-/* Custom hover effects */
-.hover-scale {
-  transition: transform 0.3s ease;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
 }
 
-.hover-scale:hover {
-  transform: scale(1.05);
+/* Additional typography styles */
+.headline {
+  font-family: var(--font-serif);
 }
 
-/* Typography improvements */
-.text-shadow {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.body-text {
+  font-family: var(--font-sans);
 }

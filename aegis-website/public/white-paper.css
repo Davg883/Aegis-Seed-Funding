@@ -1,0 +1,140 @@
+:root {
+    --charcoal-grey: #36454F;
+    --aegis-navy: #002366;
+    --cerulean-blue: #2A52BE;
+    --background-white: #FFFFFF;
+    --font-serif: 'Georgia', serif;
+    --font-sans-serif: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans-serif);
+    background-color: #f0f2f5;
+    color: var(--charcoal-grey);
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.playbook {
+    background-color: var(--background-white);
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 60px;
+    padding: 50px;
+}
+
+section, header, footer {
+    grid-column: 1 / -1; /* Default to full width */
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.full-width, .full-width-break {
+    grid-column: 1 / -1;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--aegis-navy);
+    font-weight: 600;
+}
+
+h1 { font-size: 2.8em; text-align: center; margin-bottom: 0.5em; }
+h2 { font-size: 2.2em; border-bottom: 2px solid var(--aegis-navy); padding-bottom: 10px; margin-top: 20px;}
+h3 { font-size: 1.5em; color: var(--charcoal-grey); }
+h4 { font-size: 1.2em; }
+
+.pull-quote {
+    font-family: var(--font-serif);
+    font-size: 1.8em;
+    text-align: center;
+    color: var(--cerulean-blue);
+    margin: 40px auto;
+    max-width: 80%;
+    font-style: italic;
+}
+
+.hero-number {
+    font-family: var(--font-serif);
+    font-size: 3em;
+    color: var(--aegis-navy);
+    text-align: center;
+}
+
+/* Header & Footer */
+.header-content, footer {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.logo, .final-logo {
+    font-family: var(--font-serif);
+    font-weight: bold;
+    font-size: 2em;
+    color: var(--aegis-navy);
+}
+
+.confidential {
+    font-weight: bold;
+    color: #c00;
+    border: 1px solid #c00;
+    padding: 2px 8px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+footer {
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+
+/* Specific Sections */
+#executive-summary .two-column { grid-template-columns: 2fr 1fr; align-items: center; }
+#team .four-column { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+.headshot { width: 100px; height: 100px; background-color: #ccc; border-radius: 50%; margin: 0 auto 10px; }
+.logos { font-size: 0.8em; color: #777; }
+
+/* Structured Abstraction Graphics */
+.structured-abstraction, .icon-grid, .swimlane-diagram, .financial-details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#exec-summary-diagram {
+    flex-direction: column;
+    gap: 15px;
+}
+.node-cluster { display: flex; gap: 5px; position: relative; justify-content: center; }
+.node { background-color: var(--aegis-navy); border-radius: 50%; }
+.node.small { width: 20px; height: 20px; background-color: #ccc; }
+.node.large { width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9em; text-align: center;}
+.label { position: absolute; bottom: -20px; font-size: 0.8em; color: #777; }
+.outcomes { display: flex; gap: 20px; font-size: 0.9em; color: var(--charcoal-grey); }
+
+.swimlane-diagram { gap: 10px; }
+.phase { text-align: center; width: 200px; }
+.phase-icon { height: 50px; width: 50px; margin: 0 auto 10px; border: 2px solid var(--aegis-navy);}
+.arrow { font-size: 2em; color: var(--aegis-navy); }
+
+.moat-icon { width: 60px; height: 60px; border: 2px solid var(--aegis-navy); margin: 10px; }
+.icon-grid { flex-wrap: wrap; max-width: 200px; }
+
+.financial-details { gap: 40px; }
+.donut-chart { position: relative; width: 150px; height: 150px; border-radius: 50%; background: conic-gradient(var(--aegis-navy) 0% 70%, var(--cerulean-blue) 70% 100%); display: flex; align-items: center; justify-content: center; }
+.donut-hole { width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5em; font-weight: bold; color: var(--aegis-navy); }
+
+ul, ol { padding-left: 20px; }
+li { margin-bottom: 10px; }
